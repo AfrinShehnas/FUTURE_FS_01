@@ -1,9 +1,24 @@
 body {
     margin: 0;
     font-family: Arial;
-    display: flex;
     background: #298270;
     color: white;
+}
+
+/* DESKTOP LAYOUT */
+@media (min-width: 769px) {
+    body {
+        display: flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        height: 100vh;
+    }
+
+    .main {
+        margin-left: 240px;
+    }
 }
 
 /* SIDEBAR */
@@ -39,25 +54,35 @@ body {
 /* HERO */
 .hero {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* 🔥 important */
+    justify-content: center;
     align-items: center;
+    gap: 20px;
     background: linear-gradient(135deg, #48dac7, #234942);
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
+    text-align: center;
 }
 
 .hero-img {
-    width: 150px;
+    width: 120px;
+    max-width: 100%;
     border-radius: 50%;
 }
 
+.hero h1 {
+    font-size: 24px;
+}
+
+/* BUTTONS */
 .btn {
     background: #22eeb4;
     padding: 10px 15px;
     color: black;
     border-radius: 8px;
     text-decoration: none;
-    margin-right: 10px;
+    margin: 5px;
+    display: inline-block;
 }
 
 .outline {
@@ -81,12 +106,13 @@ body {
     margin: 5px;
     display: inline-block;
     border-radius: 8px;
-    
 }
+
 .skills span i {
     margin-right: 6px;
     color: #22eeb4;
 }
+
 /* PROJECTS */
 .projects {
     display: grid;
@@ -120,58 +146,43 @@ body {
     border-radius: 8px;
     text-decoration: none;
 }
-/* 📱 MOBILE RESPONSIVE FIX */
+
+/* MOBILE FIX */
 @media (max-width: 768px) {
 
     body {
-        flex-direction: column;
+        display: block; /* 🔥 KEY FIX */
     }
 
-    /* SIDEBAR TOP BAR */
     .sidebar {
-        position: relative;
         width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
-    .sidebar nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .sidebar a {
-        margin: 5px 10px;
-    }
-
-    /* MAIN FULL WIDTH */
     .main {
-        margin-left: 0;
-        padding: 15px;
+        width: 100%;
+        padding: 10px;
     }
 
-    /* HERO STACK */
     .hero {
         flex-direction: column;
-        text-align: center;
-        gap: 20px;
     }
 
     .hero-img {
-        width: 120px;
+        width: 100px;
     }
 
-    /* PROJECTS SINGLE COLUMN */
     .projects {
         grid-template-columns: 1fr;
     }
 
-    /* SKILLS WRAP */
-    .skills {
-        justify-content: center;
+    /* OPTIONAL: hide side profile image */
+    .profile {
+        display: none;
     }
+}
 
+/* GLOBAL IMAGE FIX */
+img {
+    max-width: 100%;
+    height: auto;
 }
